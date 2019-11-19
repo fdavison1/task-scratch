@@ -7,7 +7,7 @@ export default class Task extends React.Component{
             <div className='task'>
                 
                 
-                <h3>{taskObj.content}</h3>
+                <p>{taskObj.content}</p>
                
                 
                 

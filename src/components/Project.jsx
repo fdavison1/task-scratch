@@ -1,8 +1,12 @@
 import React from 'react'
 import Task from './Task'
+import NewTask from './NewTask'
 
 export default class Project extends React.Component{
-    state = {
+    constructor(){
+        super()
+
+    this.state = {
         tasks: [{
                 id: 1,
                 content: 'task-1',
@@ -12,18 +16,47 @@ export default class Project extends React.Component{
                 id: 2,
                 content: 'task-2',
                 index: 2
-            }]
-        
+            }],
+        newTask: false
     }
+    this.cancelTask = this.cancelTask.bind(this)
+    this.doneTask = this.doneTask.bind(this)
+}
+    addTask(){
+        this.setState({
+            newTask: true
+        })
+    }
+
+    cancelTask(){
+        this.setState({
+            newTask: false
+        })
+    }
+
+    doneTask(){
+        this.state.tasks.push(
+            {
+            id: 1,
+            content: 'task-1',
+            index: 1
+        }
+        )
+        this.setState({
+            tasks: this.state.tasks
+        })
+        this.cancelTask()
+    }
+
     render(){
-        const {tasks} =this.state
+        const {tasks, newTask} =this.state
         return(
             <div className='project'>
                 
                 
                 
                 
-                <h1>Project-1</h1>
+                <p>project-1</p>
                 {/* MAP OUT TASKS FOR EACH PROJECT */}
                 {tasks.map(task => (
                     <Task 
@@ -31,8 +64,16 @@ export default class Project extends React.Component{
                     key={task.content}/>
                 ))}
                 
-                
-                <button>Add task</button>
+                {newTask && <NewTask 
+                cancelTask = {this.cancelTask}
+                doneTask = {this.doneTask}
+                />}
+                <br/>
+
+
+                <button
+                onClick={() => this.addTask()}
+                >Add task</button>
                 
                 
                 
