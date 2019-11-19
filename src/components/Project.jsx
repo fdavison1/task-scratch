@@ -17,10 +17,16 @@ export default class Project extends React.Component{
                 content: 'task-2',
                 index: 2
             }],
-        newTask: false
+        newTask: false,
+        task: {
+            id: 8,
+            content: '',
+            index: 8 
+        }
     }
     this.cancelTask = this.cancelTask.bind(this)
     this.doneTask = this.doneTask.bind(this)
+    this.taskInput = this.taskInput.bind(this)
 }
     addTask(){
         this.setState({
@@ -35,17 +41,24 @@ export default class Project extends React.Component{
     }
 
     doneTask(){
-        this.state.tasks.push(
-            {
-            id: 1,
-            content: 'task-1',
-            index: 1
+        if(!this.state.task.content){
+            return this.cancelTask()
         }
-        )
         this.setState({
-            tasks: this.state.tasks
+            tasks: [...this.state.tasks, this.state.task]
+        })
+        this.setState({
+            task: {
+                content: ''
+            }
         })
         this.cancelTask()
+    }
+
+    taskInput(e){
+        this.setState({
+            task: {...this.state.task, content: e}
+        })
     }
 
     render(){
@@ -67,6 +80,7 @@ export default class Project extends React.Component{
                 {newTask && <NewTask 
                 cancelTask = {this.cancelTask}
                 doneTask = {this.doneTask}
+                taskInput = {this.taskInput}
                 />}
                 <br/>
 

@@ -4,7 +4,9 @@ export default function NewTask  (props)  {
     return (
         <div className='task'>
 
-            <input type="text"/>
+            <input 
+            onChange={(e)=> props.taskInput(e.target.value)}
+            type="text"/>
 
             <button
             onClick={()=> props.doneTask()}
