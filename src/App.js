@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Project from './components/Project'
-import { DragDropContext } from 'react-beautiful-dnd'
 
 
 class App extends React.Component {
@@ -17,7 +16,7 @@ class App extends React.Component {
 
     return (
 
-      <DragDropContext onDragEnd={this.onDragEnd} >
+
       <div className="App">
 
 
@@ -26,7 +25,7 @@ class App extends React.Component {
     <Project />
 
         </div>
-      </DragDropContext>
+
 
     );
   }

@@ -1,7 +1,6 @@
 import React from 'react'
 import Task from './Task'
 import NewTask from './NewTask'
-import { Droppable } from 'react-beautiful-dnd'
 
 export default class Project extends React.Component {
     constructor() {
@@ -67,7 +66,6 @@ export default class Project extends React.Component {
         return (
             <div className='project'>
             
-            <Droppable droppableId='1'>
 
             
                     <p>project-1</p>
@@ -79,7 +77,6 @@ export default class Project extends React.Component {
                             key={task.content} />
                     ))}
 
-                </Droppable>
 
                 {newTask && <NewTask
                     cancelTask={this.cancelTask}
