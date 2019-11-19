@@ -1,22 +1,30 @@
-.App {
+
+
+body {
+  background: oldlace;
+  box-sizing: border-box;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.project, .task {
+  border: solid black;
+  border-radius: 7px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.project {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: lightgray;
 }
 
-.App-link {
-  color: #09d3ac;
+.task {
+  max-width: 800px;
+  margin: 20px auto;
+  background: lightskyblue;
+}
+
+button {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
