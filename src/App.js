@@ -1,16 +1,35 @@
 import React from 'react';
 import './App.css';
 import Project from './components/Project'
+import { DragDropContext } from 'react-beautiful-dnd'
 
-function App() {
-  return (
-    <div className="App">
 
-    hello, world
+class App extends React.Component {
+  state = {}
+
+
+
+  onDragEnd(){
+    return console.log('fred')
+  }
+
+  render() {
+
+    return (
+
+      <DragDropContext onDragEnd={this.onDragEnd} >
+      <div className="App">
+
+
+
+          hello, world
     <Project />
 
-    </div>
-  );
+        </div>
+      </DragDropContext>
+
+    );
+  }
 }
 
 export default App;
